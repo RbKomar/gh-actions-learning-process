@@ -43,7 +43,7 @@ jobs:
           echo "INPUT: $TEST_ENV"
       - name: Run script
         run: |
-          python sample.py
+          TEST_ENV=$TEST_ENV python sample.py
       #- uses: stefanzweifel/git-auto-commit-action@v4
       #  with:
       #    commit_message: The hour has changed
