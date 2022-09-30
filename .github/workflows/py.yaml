@@ -26,6 +26,8 @@ jobs:
      - name: Print input
        run: |
           echo "INPUT: ${{github.event.inputs.environment}}"
+     - name: Print context
+       run: |
           echo "$GITHUB_CONTEXT"
      - name: Run script
        run: |
