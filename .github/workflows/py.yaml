@@ -44,9 +44,9 @@ jobs:
       - name: Run script
         run: |
           TEST_ENV=$TEST_ENV python sample.py
-      #- uses: stefanzweifel/git-auto-commit-action@v4
-      #  with:
-      #    commit_message: The hour has changed
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: The hour has changed
   context:
     runs-on: ubuntu-latest
     steps:
