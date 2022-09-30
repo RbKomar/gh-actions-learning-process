@@ -25,10 +25,11 @@ jobs:
         python-version: '3.10'
      - name: Print input
        run: |
-          echo "${{github.event.inputs.environment}}"
+          echo "INPUT: ${{github.event.inputs.environment}}"
+          echo "$GITHUB_CONTEXT"
      - name: Run script
        run: |
          python sample.py
-     - uses: stefanzweifel/git-auto-commit-action@v4
-       with:
-         commit_message: The hour has changed
+     #- uses: stefanzweifel/git-auto-commit-action@v4
+     #  with:
+     #    commit_message: The hour has changed
