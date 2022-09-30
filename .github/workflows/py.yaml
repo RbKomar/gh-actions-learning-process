@@ -28,20 +28,17 @@ jobs:
         env:
           TEST_ENV: INPUT_1 WAS CHOSEN
         run: |
-           echo "INPUT: $TEST_ENV"
+          TEST_ENV=$TEST_ENV python sample.py
       - name: if2
         if: ${{github.event.inputs.environment == 'input_2'}}
         env:
           TEST_ENV: INPUT_2 WAS CHOSEN
         run: |
-           echo "INPUT: $TEST_ENV"
+          TEST_ENV=$TEST_ENV python sample.py
       - name: else
         if: ${{! github.event.inputs.environment}}
         env:
           TEST_ENV: NONE OF THEM SO PROBABLY PUSH ACTION :DD
-        run: |
-          echo "INPUT: $TEST_ENV"
-      - name: Run script
         run: |
           TEST_ENV=$TEST_ENV python sample.py
       - uses: stefanzweifel/git-auto-commit-action@v4
