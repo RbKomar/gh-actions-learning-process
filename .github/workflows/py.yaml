@@ -23,9 +23,24 @@ jobs:
         uses: actions/setup-python@v4
         with:
          python-version: '3.10'
-      - name: Print input
+      - name: if1
+        if: ${{github.events.inputs.environment == input_1}}
+        env:
+          TEST_ENV: INPUT_1 WAS CHOSEN
         run: |
-           echo "INPUT: ${{github.event.inputs.environment}}"
+           echo "INPUT: $TEST_ENV"
+      - name: if2
+        if: ${{github.events.inputs.environment == input_2}}
+        env:
+          TEST_ENV: INPUT_2 WAS CHOSEN
+        run: |
+           echo "INPUT: $TEST_ENV"
+      - name: else
+        if: ${{! github.events.inputs.environment}}
+        env:
+          TEST_ENV: NONE OF THEM SO PROBABLY PUSH ACTION :DD
+        run: |
+          echo "INPUT: $TEST_ENV"
       - name: Run script
         run: |
           python sample.py
