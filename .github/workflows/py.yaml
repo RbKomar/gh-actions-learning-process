@@ -28,7 +28,7 @@ jobs:
           echo "INPUT: ${{github.event.inputs.environment}}"
      - name: Print context
        run: |
-          echo "$GITHUB_CONTEXT"
+          echo '${{ toJSON(github) }}'
      - name: Run script
        run: |
          python sample.py
